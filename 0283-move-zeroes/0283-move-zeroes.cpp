@@ -18,18 +18,40 @@ public:
     //     right++;
     //   }
 
-    // method 2
+//     // method 2
 
-    for (int right = 0; right < nums.size(); right++){
-        if (nums[right] != 0){
-            nums[left] = nums[right];
-            left++;
+//     for (int right = 0; right < nums.size(); right++){
+//         if (nums[right] != 0){
+//             nums[left] = nums[right];
+//             left++;
+//         }
+//     }
+
+//     for (int i = left; i < nums.size(); i++){
+//         nums[i] = 0;
+//     }
+        
+        // method 3
+        // find the first zero
+        
+        int j = -1;
+        for (int i = 0; i < nums.size(); i++){
+            if (nums[i] == 0){
+                j = i;
+                break;
+            }
         }
-    }
-
-    for (int i = left; i < nums.size(); i++){
-        nums[i] = 0;
-    }
+        
+        if (j == -1) return;
+        
+        for (int i = j + 1; i < nums.size(); i++){
+            if (nums[i] != 0){
+                int temp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = temp;
+                j++;
+            }
+        }
 
     }
 };
