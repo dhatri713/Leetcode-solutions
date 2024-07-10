@@ -26,7 +26,7 @@ public:
                 result[p_index] = nums[i];
                 p_index += 2;
             }
-            if (nums[i] < 0) {
+            else {
                 result[n_index] = nums[i];
                 n_index += 2;
             }
