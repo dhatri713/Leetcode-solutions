@@ -5,7 +5,7 @@ public:
         int mid = 0;
         int high = nums.size() - 1;
 
-        for (int i = 0; i < nums.size(); i++){
+        while (mid <= high){
             if (nums[mid] == 0){
                 int temp = nums[low];
                 nums[low] = nums[mid];
