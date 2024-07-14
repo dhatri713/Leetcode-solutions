@@ -1,1 +1,1 @@
-Lettcode Solutions
+Leetcode Solutions
