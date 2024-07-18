@@ -1,6 +1,15 @@
 #include <bits/stdc++.h>
 class Solution {
 public:
+    int findMax(vector<int> &v) {
+    int maxi = INT_MIN;
+    int n = v.size();
+    //find the maximum:
+    for (int i = 0; i < n; i++) {
+        maxi = max(maxi, v[i]);
+    }
+    return maxi;
+}
     bool koko_can_finish(vector<int>& piles, int h, int k){
         int total_hrs = 0;
         if (k == 0) return false;
@@ -12,9 +21,9 @@ public:
     }
     
     int minEatingSpeed(vector<int>& piles, int h) {
-        sort(piles.begin(), piles.end());
+        //sort(piles.begin(), piles.end());
         int low = 0;
-        int high = piles[piles.size() - 1];
+        int high = findMax(piles);
         int k;
         
         while (low <= high){
