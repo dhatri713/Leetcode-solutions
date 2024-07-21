@@ -18,7 +18,7 @@ public:
         ListNode* dummy2 = temp2;
         ListNode* dummy1 = temp1; 
         
-        while (temp1->next != nullptr && temp2->next != nullptr){
+        while (temp2 != nullptr && temp2->next != nullptr){
             temp1->next = temp2->next;
             temp2->next = temp1->next->next;
             temp1 = temp1->next;
