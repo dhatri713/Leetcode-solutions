@@ -14,17 +14,22 @@ public:
         if (head == nullptr || head->next == nullptr) return nullptr;
         ListNode* slow = head;
         ListNode* fast = head;
-        ListNode* prev = nullptr;
+        
+        int cnt = 2;
+        while (cnt > 0){
+            fast = fast->next;
+            cnt--;
+        }
 
         while (fast != nullptr && fast->next != nullptr){
-            prev = slow;
             slow = slow->next;
             fast = fast->next->next;
         }
 
         
-        prev->next = slow->next;
-        delete slow;
+        ListNode* front = slow->next;
+        slow->next = front->next;
+        delete front;
         return head;
     }
 };
