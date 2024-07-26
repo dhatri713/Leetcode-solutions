@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void generate(int i, vector<int> nums, vector<vector<int>>& subsets, vector<int> subset){
+    void generate(int i, vector<int> nums, vector<vector<int>>& subsets, vector<int>& subset){
         if (i >= nums.size()){
             subsets.push_back(subset);
             return;
