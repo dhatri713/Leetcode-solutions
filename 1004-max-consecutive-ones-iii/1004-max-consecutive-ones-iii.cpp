@@ -10,14 +10,17 @@ public:
         while (r < nums.size()){
             if (nums[r] == 0) num_zeros += 1;
             if (num_zeros > k) {
-                while (num_zeros > k){
-                    if(nums[l] == 0){
-                        num_zeros -= 1;
-                    }
-                    l++;
-                }
+                // while (num_zeros > k){
+                //     if(nums[l] == 0){
+                //         num_zeros -= 1;
+                //     }
+                //     l++;
+                // }
+                
+                if (nums[l] == 0) num_zeros--;
+                l++;
             }
-            max_length = max(max_length, r - l + 1);
+            if (num_zeros <= k) max_length = max(max_length, r - l + 1);
             r++;
         }
         
