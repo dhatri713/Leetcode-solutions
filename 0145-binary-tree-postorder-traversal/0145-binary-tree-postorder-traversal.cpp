@@ -21,6 +21,26 @@ public:
 
 vector<int> postorderTraversal(TreeNode* root) {
     vector<int> res;
-    return pre_order(root, res);
+    // return pre_order(root, res);
+    
+    stack<TreeNode*> st1;
+    stack<TreeNode*> st2;
+    
+    if (!root) return res;
+    st1.push(root);
+    while (!st1.empty()){
+        TreeNode* node = st1.top();
+        st1.pop();
+        if (node->left) st1.push(node->left);
+        if (node->right) st1.push(node->right);
+        st2.push(node);
+    }
+    
+    while (!st2.empty()){
+        TreeNode* temp = st2.top();
+        res.push_back(temp->val);
+        st2.pop();
+    }
+    return res;
 }
 };
