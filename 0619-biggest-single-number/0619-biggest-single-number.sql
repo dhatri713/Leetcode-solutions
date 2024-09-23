@@ -1,12 +1,8 @@
 # Write your MySQL query statement below
-WITH CountTable AS (
-    SELECT COUNT(num) as cnt, num
+SELECT MAX(num) AS num
+FROM (
+    SELECT num
     FROM MyNumbers
     GROUP BY num
-)
-
-SELECT MAX(m.num) AS num
-FROM MyNumbers m
-JOIN CountTable c
-ON m.num = c.num
-WHERE c.cnt = 1;
+    HAVING COUNT(num) = 1
+) AS single_numbers;
